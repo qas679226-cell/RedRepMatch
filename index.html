@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RepMatch</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Video Modal -->
+  <div id="videoModal" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content video-modal-content">
+      <button class="close-btn" id="closeVideoModal">&times;</button>
+      <iframe
+        id="videoFrame"
+        src=""
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+
+  <!-- Quiz Modal -->
+  <div id="quizModal" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content quiz-modal-content">
+      <button class="close-btn" id="closeQuizModal">&times;</button>
+
+      <div id="quizContainer">
+        <div class="progress-bar-wrap">
+          <div class="progress-bar"><span id="progressFill"></span></div>
+        </div>
+        <p class="eyebrow" id="quizStepLabel">Step 1 of 4</p>
+        <h3 id="quizQuestion" class="quiz-question"></h3>
+        <div id="quizOptions" class="quiz-options"></div>
+      </div>
+
+      <div id="bookingContainer" class="hidden booking-container">
+        <div class="booking-header">
+          <p class="eyebrow">Qualified</p>
+          <h3>Book Your Strategy Session</h3>
+        </div>
+        <div id="bookingLoader" class="booking-loader">Loading calendar...</div>
+        <iframe
+          id="calendlyFrame"
+          src=""
+          frameborder="0"
+          class="calendly-frame"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="navbar" class="navbar">
+    <div class="container nav-inner">
+      <div class="logo" data-scroll="hero">RepMatch<span>.</span></div>
+      <div class="nav-links">
+        <button data-scroll="problem">Problem</button>
+        <button data-scroll="how">Process</button>
+        <button data-scroll="notForYou">Warning</button>
+        <button data-scroll="calculator">ROI</button>
+        <button data-scroll="faq">FAQ</button>
+      </div>
+      <button class="primary-btn apply-btn">Apply Now</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero" class="section hero">
+    <div class="container center">
+      <div class="badge">
+        <span class="dot"></span>
+        <span>Partnerships Open for Q2</span>
+      </div>
+      <h1>
+        Commission Sales Pods<br />
+        <span>Installed in 30 Days</span>
+      </h1>
+      <p class="hero-copy">
+        We install vetted <strong>Commission-Only Closers</strong> and
+        <strong>Appointment Setters</strong> into your company so you can scale
+        revenue without the risk of expensive salaries.
+      </p>
+      <div class="hero-actions">
+        <button class="primary-btn apply-btn">Get Started</button>
+        <button class="secondary-btn" data-scroll="calculator">Calculate ROI</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section id="problem" class="section alt-bg">
+    <div class="container two-col">
+      <div>
+        <p class="eyebrow">The Bottleneck</p>
+        <h2>Founders Are <br><span class="muted">Not Sales Managers</span></h2>
+        <p class="section-copy">
+          Scaling is impossible when the founder is stuck setting their own
+          appointments and closing every lead. Traditional hiring is broken.
+        </p>
+
+        <div class="stack">
+          <div class="info-card">
+            <h4>✖ Founder-led sales bottleneck</h4>
+            <p>You are the only person who can sell, meaning you can't grow.</p>
+          </div>
+          <div class="info-card">
+            <h4>✖ High salary risk</h4>
+            <p>Paying £3k-£5k/mo per rep before a single deal is even closed.</p>
+          </div>
+          <div class="info-card">
+            <h4>✖ Recruitment complexity</h4>
+            <p>Vetting setters and closers is a full-time job you don't have time for.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-card">
+        <p>
+          “I was stuck doing 4 sales calls a day while trying to manage my own
+          inbox. I couldn't hire because I couldn't risk the overhead.
+          RepMatch changed the game.”
+        </p>
+        <div class="quote-meta">
+          <strong>Founders Dilemma</strong>
+          <span>Growth Stagnation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution -->
+  <section id="solution" class="section">
+    <div class="container center">
+      <p class="eyebrow">The Solution</p>
+      <h2>A Fully Managed <br><span>Sales Pod</span></h2>
+      <p class="subhead">
+        We don't just find you people. We build the infrastructure, recruit the talent, and manage the performance.
+      </p>
+
+      <div class="grid four">
+        <div class="feature-card">
+          <div class="feature-icon">🛡</div>
+          <h4>Vetted Closers</h4>
+          <p>Top 1% commission-only closers who have sold £1M+ in high-ticket services.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h4>Appointment Setters</h4>
+          <p>Aggressive prospectors to fill your calendar while you focus on delivery.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📄</div>
+          <h4>Sales Assets</h4>
+          <p>We build your scripts, objection handlers, and CRM pipelines from scratch.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h4>Active Management</h4>
+          <p>Weekly call reviews and KPI monitoring. We fire and replace underperformers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="how" class="section alt-bg">
+    <div class="container two-col align-center">
+      <div class="circle-block">
+        <div class="circle-inner">
+          <div class="circle-number">30</div>
+          <div class="circle-label">Day Setup</div>
+        </div>
+      </div>
+
+      <div>
+        <p class="eyebrow">The Process</p>
+        <h2>How We <span class="muted">Scale You</span></h2>
+
+        <div class="process-list">
+          <div class="process-item">
+            <span>01</span>
+            <div>
+              <h4>Sales Audit</h4>
+              <p>We review your current offer, pricing, and leads to ensure product-market fit.</p>
+            </div>
+          </div>
+          <div class="process-item">
+            <span>02</span>
+            <div>
+              <h4>Infrastructure Build</h4>
+              <p>We setup your CRM, tracking, and sales collateral (decks & scripts).</p>
+            </div>
+          </div>
+          <div class="process-item">
+            <span>03</span>
+            <div>
+              <h4>The Draft</h4>
+              <p>We present 3-5 vetted candidates from our network for you to interview.</p>
+            </div>
+          </div>
+          <div class="process-item">
+            <span>04</span>
+            <div>
+              <h4>Activation</h4>
+              <p>Reps start setting and closing. We manage the KPIs daily.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Not for you -->
+  <section id="notForYou" class="section">
+    <div class="container center">
+      <p class="eyebrow">A Fair Warning</p>
+      <h2>Why You Should <br><span class="muted">NOT Work With Us</span></h2>
+      <p class="subhead">We are extremely selective. Read carefully.</p>
+
+      <div class="grid three">
+        <div class="feature-card">
+          <div class="feature-icon">⛔</div>
+          <h4>You Lack Product-Market Fit</h4>
+          <p>If your offer hasn't been proven or you don't have case studies yet, a sales team won't save you.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⏰</div>
+          <h4>You Want a Quick Fix</h4>
+          <p>We build long-term sales infrastructure, not magic-button revenue fixes.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚠</div>
+          <h4>You Can't Handle the Volume</h4>
+          <p>If delivery breaks under 10-20 new clients a month, don't hire us yet.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📈</div>
+          <h4>Low Ticket Offers</h4>
+          <p>If your LTV is under £2k, elite commission-only reps usually won't be a fit.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👥</div>
+          <h4>Micro-Management Culture</h4>
+          <p>If you need to control every sales message, you'll hate our process.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🗂</div>
+          <h4>No Data / Lead Source</h4>
+          <p>Reps need fuel to dial. We need a foundation to build on.</p>
+        </div>
+      </div>
+
+      <div class="cta-panel">
+        <h4>Still here? You're probably a fit.</h4>
+        <p>
+          If you have a proven offer, high-ticket margins, and just need the talent to scale, let's talk.
+        </p>
+        <button class="primary-btn apply-btn">Confirm Eligibility</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Onboarding -->
+  <section id="onboarding" class="section bordered">
+    <div class="container center">
+      <p class="eyebrow">Fast-Track</p>
+      <h2>The <span>Onboarding</span> Journey</h2>
+
+      <div class="grid three">
+        <div class="feature-card">
+          <p class="mini-label">Week 1</p>
+          <h4>Deep Dive</h4>
+          <ul>
+            <li>Offer Optimization</li>
+            <li>Target Persona Mapping</li>
+            <li>CRM Integration</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <p class="mini-label">Week 2-3</p>
+          <h4>Talent Match</h4>
+          <ul>
+            <li>Recruitment Blitz</li>
+            <li>Interviewing Vetted Reps</li>
+            <li>Final Selection</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <p class="mini-label">Week 4</p>
+          <h4>Live Fire</h4>
+          <ul>
+            <li>Script Roleplays</li>
+            <li>Live Call Feedback</li>
+            <li>First Commissions Paid</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="section">
+    <div class="container center">
+      <p class="eyebrow">Partner Success</p>
+      <h2>Scaling <span>Omyra.ai</span></h2>
+
+      <div class="video-card" id="openVideoModal">
+        <div class="play-btn">▶</div>
+        <h4>Alex, Chief Revenue Officer</h4>
+        <p>OMYRA.AI SUCCESS STORY</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator -->
+  <section id="calculator" class="section alt-bg bordered">
+    <div class="container two-col align-center">
+      <div>
+        <p class="eyebrow">Growth Projection</p>
+        <h2>Calculate Your <br><span>Scale Potential</span></h2>
+
+        <div class="slider-group">
+          <label>Ticket Price (£) <span id="ticketPriceValue">£3000</span></label>
+          <input type="range" id="ticketPrice" min="500" max="25000" step="500" value="3000" />
+        </div>
+
+        <div class="slider-group">
+          <label>Monthly Leads <span id="monthlyLeadsValue">50 Leads</span></label>
+          <input type="range" id="monthlyLeads" min="10" max="500" step="5" value="50" />
+        </div>
+      </div>
+
+      <div class="revenue-box">
+        <p class="eyebrow">Potential Monthly Lift</p>
+        <div class="revenue-number" id="revenueLift">+£11,250</div>
+        <button class="primary-btn apply-btn">Capture This Revenue</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="container faq-wrap">
+      <div class="center">
+        <p class="eyebrow">Common Questions</p>
+        <h2>FAQs</h2>
+      </div>
+
+      <div id="faqList" class="faq-list"></div>
+
+      <div class="center faq-footer">
+        <p>Still have questions?</p>
+        <button class="text-btn apply-btn">Speak with a strategist →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="logo">RepMatch<span>.</span></div>
+      <p>© 2024 RepMatch Inc. Performance Sales Infrastructure.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
